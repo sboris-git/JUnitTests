@@ -1,2 +1,0 @@
-# JUnitTests
-Migration to JAVA
