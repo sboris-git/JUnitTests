@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WebBrowserDriver {
 
     private org.openqa.selenium.WebDriver driver;
@@ -11,6 +13,8 @@ public class WebBrowserDriver {
     public org.openqa.selenium.WebDriver setDriver() {
             System.setProperty("webdriver.chrome.driver", "/home/stable/IdeaProjects/junit/lib/chromedriver");
             this.driver = new ChromeDriver();
+            this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         return driver;
     }
 }

@@ -6,19 +6,22 @@ public class LoginPage {
 
     //private WebDriver driver;
     private SeleniumWrapper seleniumWrapper;
+    private String text;
 
     // Constructor
     public LoginPage(SeleniumWrapper seleniumWrapper) {
+
         this.seleniumWrapper = seleniumWrapper;
+        this.text = text;
     }
 
     // Web Elements Locators
     By usernameBy = By.name("email");
     By passwordBy = By.name("password");
     By loginButtonBy = By.cssSelector("button[value=\"Login\"]");
-    By errorMessageUsernameBy = By.cssSelector("p[class*=\"MuiFormHelperText-filled\"]");
-    By errorMessagePasswordBy = By.cssSelector("p[class=\"MuiFormHelperText-root Mui-error\"]");
     By signInButtonBy = By.cssSelector(".mt-5");
+    public static final By errorMessageUsernameBy = By.cssSelector("p[class*=\"MuiFormHelperText-filled\"]");
+    public static final By errorMessagePasswordBy = By.cssSelector("p[class=\"MuiFormHelperText-root Mui-error\"]");
 
     // Page Data
     String baseURL = "http://34.65.101.58:5002/home/events/?page=1";
@@ -46,7 +49,11 @@ public class LoginPage {
         seleniumWrapper.click(loginButtonBy);
         return this;
     }
-
+    // Read test from element
+    public LoginPage getText(By elementBy) {
+        this.text = seleniumWrapper.readText(elementBy);
+        return this;
+    }
     //Verify Username Condition
     public LoginPage verifyLoginUserName (String expectedText) {
         seleniumWrapper.assertEquals(errorMessageUsernameBy, expectedText);

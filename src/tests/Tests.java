@@ -13,7 +13,7 @@ import static data.Creds.*;
 
 public class Tests {
 
-    public PageObj pageObj;
+    private PageObj pageObj;
 
     @Before
     public void setUp() {
@@ -33,8 +33,19 @@ public class Tests {
         pageObj.getLoginPage()
                 .goToHomePage()
                 .clickSignInButton()
-                .doLogin(USERNAME, USERPASSWORD);
-//        pageObj.getDriver().quit();
+                .doLogin(USERNAME, USERPASSWORD)
+                .verifyLoginUserName("Invalid email address");
+                //.verifyLoginPassword(""); css = input[placeholder="Password:"] the text is "Password:"
+    }
+    @Test
+    public void testPasswordPositive() {
+
+        pageObj.getLoginPage()
+                .goToHomePage()
+                .clickSignInButton()
+                .doLogin(USERNAME, USERPASSWORD)
+//                .verifyLoginUserName(errorMessageUsernameBy,"Invalid email address");
+                .verifyLoginPassword(""); // css = input[placeholder="Password:"] the text is "Password:"
     }
 
     @After
