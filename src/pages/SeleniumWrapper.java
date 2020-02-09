@@ -7,19 +7,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.Assert;
 
 
-public class BasePage {
+public class SeleniumWrapper {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     //Constructor
-    public BasePage(WebDriver driver) {
+    public SeleniumWrapper(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver,15);
     }
 
 
     // Page Methods
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     //Wait Wrapper Method
     public void waitVisibility(By elementBy) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));

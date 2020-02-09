@@ -2,44 +2,32 @@ package tests;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.SeleniumWrapper;
 import pages.LoginPage;
 import pages.PageObj;
+import pages.SeleniumWrapper;
 
-import static data.Creds.*;
+public class TestUtil {
 
-public class Tests {
-
+    private WebDriver driver;
     public PageObj pageObj;
+    private LoginPage loginPage;
 
     @Before
     public void setUp() {
         //Create a Chrome driver. All test classes use this.
         System.setProperty("webdriver.chrome.driver", "/home/stable/IdeaProjects/libs/chromedriver");
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         //Maximize Window
-        driver.manage().window().maximize();
+//          driver.manage().window().maximize();
         SeleniumWrapper seleniumWrapper = new SeleniumWrapper(driver);
-        LoginPage loginPage = new LoginPage(seleniumWrapper);
+        loginPage = new LoginPage(seleniumWrapper);
         pageObj = new PageObj(driver, seleniumWrapper, loginPage);
-    }
-
-    @Test
-    public void testUserNamePositive() {
-
-        pageObj.getLoginPage()
-                .goToHomePage()
-                .clickSignInButton()
-                .doLogin(USERNAME, USERPASSWORD);
-//        pageObj.getDriver().quit();
     }
 
     @After
     public void tearDown() {
         pageObj.getDriver().quit();
     }
-
 }

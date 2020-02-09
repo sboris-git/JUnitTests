@@ -1,28 +1,30 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
+
 public class PageObj {
 
-    private WebBrowserDriver theDriver;
-    private BasePage page;
+    private WebDriver driver;
+    private SeleniumWrapper seleniumWrapper;
     private LoginPage loginPage;
 
     // Constructor
-    public PageObj(WebBrowserDriver theDriver, BasePage page, LoginPage loginPage) {
-        this.theDriver = theDriver;
-        this.page = page;
+    public PageObj(WebDriver driver, SeleniumWrapper seleniumWrapper, LoginPage loginPage) {
+        this.driver = driver;
+        this.seleniumWrapper = seleniumWrapper;
         this.loginPage = loginPage;
     }
 
-    public void doLogin(String username, String password){
-        this.loginPage.doLogin(username, password);
+//    public void doLogin(String username, String password){
+//        this.loginPage.doLogin(username, password);
+//    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
-    public WebBrowserDriver getTheDriver() {
-        return theDriver;
-    }
-
-    public BasePage getPage() {
-        return page;
+    public SeleniumWrapper getSeleniumWrapper() {
+        return seleniumWrapper;
     }
 
     public LoginPage getLoginPage() {

@@ -5,11 +5,11 @@ import org.openqa.selenium.By;
 public class LoginPage {
 
     //private WebDriver driver;
-    private BasePage page;
+    private SeleniumWrapper seleniumWrapper;
 
     // Constructor
-    public LoginPage(BasePage page) {
-        this.page = page;
+    public LoginPage(SeleniumWrapper seleniumWrapper) {
+        this.seleniumWrapper = seleniumWrapper;
     }
 
     // Web Elements Locators
@@ -26,36 +26,36 @@ public class LoginPage {
     // Page Methods
     //Go to Homepage
     public LoginPage goToHomePage(){
-        page.driver.get(baseURL);
+        seleniumWrapper.getDriver().get(baseURL);
         return this;
     }
 
     // Go to Login Page
     public LoginPage clickSignInButton (){
-        page.click(signInButtonBy);
+        seleniumWrapper.click(signInButtonBy);
         return this;
     }
 
     // Do login
     public LoginPage doLogin(String username, String password){
         //Enter Username(Email)
-        page.writeText(usernameBy,username);
+        seleniumWrapper.writeText(usernameBy,username);
         //Enter Password
-        page.writeText(passwordBy, password);
+        seleniumWrapper.writeText(passwordBy, password);
         //Click Login Button
-        page.click(loginButtonBy);
+        seleniumWrapper.click(loginButtonBy);
         return this;
     }
 
     //Verify Username Condition
     public LoginPage verifyLoginUserName (String expectedText) {
-        page.assertEquals(errorMessageUsernameBy, expectedText);
+        seleniumWrapper.assertEquals(errorMessageUsernameBy, expectedText);
         return this;
     }
 
     //Verify Password Condition
     public LoginPage verifyLoginPassword (String expectedText) {
-        page.assertEquals(errorMessagePasswordBy, expectedText);
+        seleniumWrapper.assertEquals(errorMessagePasswordBy, expectedText);
         return this;
     }
 }
