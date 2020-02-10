@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import utils.SeleniumWrapper;
 
 public class PageObj {
 

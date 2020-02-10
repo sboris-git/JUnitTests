@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import utils.SeleniumWrapper;
 
 public class LoginPage {
 

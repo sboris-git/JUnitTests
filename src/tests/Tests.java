@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.SeleniumWrapper;
+import utils.SeleniumWrapper;
 import pages.LoginPage;
 import pages.PageObj;
 
@@ -17,7 +17,7 @@ public class Tests {
 
     @Before
     public void setUp() {
-        //Create a Chrome driver. All test classes use this.
+        //Create a Chrome driver. All tests use this.
         System.setProperty("webdriver.chrome.driver", "/home/stable/IdeaProjects/libs/chromedriver");
         WebDriver driver = new ChromeDriver();
         //Maximize Window
@@ -39,12 +39,11 @@ public class Tests {
     }
     @Test
     public void testPasswordPositive() {
-
+        //ToDo check verifyLoginPassword("")
         pageObj.getLoginPage()
                 .goToHomePage()
                 .clickSignInButton()
                 .doLogin(USERNAME, USERPASSWORD)
-//                .verifyLoginUserName(errorMessageUsernameBy,"Invalid email address");
                 .verifyLoginPassword(""); // css = input[placeholder="Password:"] the text is "Password:"
     }
 
