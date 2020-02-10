@@ -6,8 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebBrowserDriver {
-
-    private org.openqa.selenium.WebDriver driver;
+    private WebDriver driver;
 
     // Set instance of a WebDriver
     public org.openqa.selenium.WebDriver setDriver() {

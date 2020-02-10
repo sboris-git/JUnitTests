@@ -16,10 +16,6 @@ public class PageObj {
         this.loginPage = loginPage;
     }
 
-//    public void doLogin(String username, String password){
-//        this.loginPage.doLogin(username, password);
-//    }
-
     public WebDriver getDriver() {
         return driver;
     }

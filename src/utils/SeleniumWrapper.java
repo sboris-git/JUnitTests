@@ -15,12 +15,11 @@ public class SeleniumWrapper {
     //Constructor
     public SeleniumWrapper(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver,15);
+        wait = new WebDriverWait(driver,5);
     }
 
-
-    // Page Methods
-
+    // Page Methods Wrapped
+    //Get WebDriver instance
     public WebDriver getDriver() {
         return driver;
     }
@@ -38,7 +37,7 @@ public class SeleniumWrapper {
 
     //Write Text
     public void writeText(By elementBy, String text) {
-        //waitVisibility(elementBy);
+        waitVisibility(elementBy);
         driver.findElement(elementBy).sendKeys(text);
     }
 

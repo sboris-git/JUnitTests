@@ -1,4 +1,4 @@
-package tests;
+package utils;
 
 import org.junit.After;
 import org.junit.Before;
@@ -6,23 +6,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import pages.PageObj;
-import utils.SeleniumWrapper;
+
 
 public class TestUtil {
 
-    private WebDriver driver;
     public PageObj pageObj;
-    private LoginPage loginPage;
 
     @Before
     public void setUp() {
-        //Create a Chrome driver. All test classes use this.
+        //Create a Chrome driver.
         System.setProperty("webdriver.chrome.driver", "/home/stable/IdeaProjects/libs/chromedriver");
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         //Maximize Window
 //          driver.manage().window().maximize();
         SeleniumWrapper seleniumWrapper = new SeleniumWrapper(driver);
-        loginPage = new LoginPage(seleniumWrapper);
+        LoginPage loginPage = new LoginPage(seleniumWrapper);
         pageObj = new PageObj(driver, seleniumWrapper, loginPage);
     }
 

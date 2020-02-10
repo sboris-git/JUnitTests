@@ -22,7 +22,12 @@ public class LoginPage {
     By loginButtonBy = By.cssSelector("button[value=\"Login\"]");
     By signInButtonBy = By.cssSelector(".mt-5");
     public static final By errorMessageUsernameBy = By.cssSelector("p[class*=\"MuiFormHelperText-filled\"]");
+    //Required
     public static final By errorMessagePasswordBy = By.cssSelector("p[class=\"MuiFormHelperText-root Mui-error\"]");
+    //Password:
+    public static final By errorMessagePasswordHelpBy = By.cssSelector("input[name=\"password\"]");
+    //Invalid password
+    public static final By wrongPasswordMessageBy = By.cssSelector("p[class*=\"text-danger\"");
 
     // Page Data
     String baseURL = "http://34.65.101.58:5002/home/events/?page=1";
@@ -56,14 +61,22 @@ public class LoginPage {
         return this;
     }
     //Verify Username Condition
-    public LoginPage verifyLoginUserName (String expectedText) {
+    public void verifyLoginUserName (String expectedText) {
         seleniumWrapper.assertEquals(errorMessageUsernameBy, expectedText);
-        return this;
     }
 
-    //Verify Password Condition
-    public LoginPage verifyLoginPassword (String expectedText) {
+    //Verify Password Condition - Invalid password
+    public void verifyLoginWrongPasswordMsg (String expectedText) {
+        seleniumWrapper.assertEquals(wrongPasswordMessageBy, expectedText);
+    }
+
+    //Verify Blank Password Type - Required
+    public void verifyLoginErrorPasswordMsg (String expectedText) {
         seleniumWrapper.assertEquals(errorMessagePasswordBy, expectedText);
-        return this;
+    }
+
+    //Verify Blank Password Type Help Notation - Password:
+    public void verifyLoginErrBlankPasswordHelpMsg (String expectedText) {
+        seleniumWrapper.assertEquals(errorMessagePasswordHelpBy, expectedText);
     }
 }
