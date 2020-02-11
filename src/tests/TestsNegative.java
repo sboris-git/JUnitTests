@@ -59,7 +59,7 @@ public class TestsNegative {
                 .verifyLoginErrBlankPasswordHelpMsg("Password:");
     }
 
-    @Ignore("it doesn't display error message under Selenium WebDriver")
+    @Ignore("it doesn't display error message below Selenium WebDriver")
     @Test
     public void testWrongPassword() {
         //Verify error text "Invalid password" displayed under password text box
