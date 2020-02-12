@@ -31,7 +31,7 @@ public class TestsNegative {
 
     @Test
     public void testUserName() {
-
+        // Verify error message display on wrong e-mail typed
         pageObj.getLoginPage()
                 .goToHomePage()
                 .clickSignInButton()
@@ -59,7 +59,7 @@ public class TestsNegative {
                 .verifyLoginErrBlankPasswordHelpMsg("Password:");
     }
 
-    @Ignore("it doesn't display error message below Selenium WebDriver")
+    @Ignore("it doesn't display error message under Selenium WebDriver")
     @Test
     public void testWrongPassword() {
         //Verify error text "Invalid password" displayed under password text box
