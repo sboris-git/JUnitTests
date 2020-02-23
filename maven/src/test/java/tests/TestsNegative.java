@@ -1,22 +1,22 @@
 package tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utils.SeleniumWrapper;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.PageObj;
+import utils.SeleniumWrapper;
 
-import static data.Creds.*;
+import static data.Creds.USERNAME;
+import static data.Creds.USERPASSWORD;
 
 public class TestsNegative {
 
     private PageObj pageObj;
 
-    @Before
+    @BeforeTest
     public void setUp() {
         //Create a Chrome driver. All tests use this.
         System.setProperty("webdriver.chrome.driver", "/home/stable/IdeaProjects/libs/chromedriver");
@@ -59,8 +59,8 @@ public class TestsNegative {
                 .verifyLoginErrBlankPasswordHelpMsg("Password:");
     }
 
-    @Ignore("it doesn't display error message under Selenium WebDriver")
-    @Test
+    //@Ignore("it doesn't display error message under Selenium WebDriver")
+    @Test(enabled = false)
     public void testWrongPassword() {
         //Verify error text "Invalid password" displayed under password text box
         pageObj.getLoginPage()
@@ -70,7 +70,7 @@ public class TestsNegative {
                 .verifyLoginWrongPasswordMsg("Invalid password");
     }
 
-    @After
+    @AfterTest
     public void tearDown() {
         pageObj.getDriver().quit();
     }

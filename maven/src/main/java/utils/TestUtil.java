@@ -1,7 +1,6 @@
 package utils;
 
-import org.junit.After;
-import org.junit.Before;
+import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
@@ -13,7 +12,7 @@ public class TestUtil {
 
     public PageObj pageObj;
 
-    @Before
+    @BeforeMethod
     public void setUp() {
         //Create a Chrome driver.
         System.setProperty("webdriver.chrome.driver", "/home/stable/IdeaProjects/libs/chromedriver");
@@ -25,7 +24,7 @@ public class TestUtil {
         pageObj = new PageObj(driver, seleniumWrapper, loginPage);
     }
 
-    @After
+    @AfterMethod
     public void tearDown() {
         pageObj.getDriver().quit();
     }
