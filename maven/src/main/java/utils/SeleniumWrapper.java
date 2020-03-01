@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import static org.assertj.core.api.Assertions.*;
 
 
 public class SeleniumWrapper {
@@ -51,5 +52,10 @@ public class SeleniumWrapper {
     public void assertEquals(By elementBy, String expectedText) {
         waitVisibility(elementBy);
         Assert.assertEquals(readText(elementBy), expectedText);
+    }
+    //AssertJ
+    public void assertEqualsAssertJ(By elementBy, String expectedText) {
+        waitVisibility(elementBy);
+        assertThat(readText(elementBy)).isEqualTo(expectedText);
     }
 }

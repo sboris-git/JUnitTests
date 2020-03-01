@@ -64,10 +64,18 @@ public class LoginPage {
     public void verifyLoginUserName (String expectedText) {
         seleniumWrapper.assertEquals(errorMessageUsernameBy, expectedText);
     }
+    //Verify Username Condition by assertJ
+    public void verifyLoginUserNameAssertJ (String expectedText) {
+        seleniumWrapper.assertEqualsAssertJ(errorMessageUsernameBy, expectedText);
+    }
 
     //Verify Password Condition - Invalid password
     public void verifyLoginWrongPasswordMsg (String expectedText) {
         seleniumWrapper.assertEquals(wrongPasswordMessageBy, expectedText);
+    }
+    //Verify Password Condition by assertJ - Invalid password
+    public void verifyLoginWrongPasswordMsgAssertJ (String expectedText) {
+        seleniumWrapper.assertEqualsAssertJ(wrongPasswordMessageBy, expectedText);
     }
 
     //Verify Blank Password Type - Required
